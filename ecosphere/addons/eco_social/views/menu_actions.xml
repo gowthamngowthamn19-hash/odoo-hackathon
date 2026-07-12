@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_csr_activity" name="CSR Activities" parent="eco_base.menu_eco_social" action="action_eco_csr_activity" sequence="10" />
+
+    <menuitem id="menu_eco_employee_participation" name="Participations" parent="eco_base.menu_eco_social" action="action_eco_employee_participation" sequence="20" />
+
+    <menuitem id="menu_eco_diversity_metric" name="Diversity Metrics" parent="eco_base.menu_eco_social" action="action_eco_diversity_metric" sequence="30" />
+
+    <menuitem id="menu_eco_social_training" name="Training Programs" parent="menu_eco_social_training_root" action="action_eco_social_training" sequence="10" />
+
+    <menuitem id="menu_eco_social_training_completion" name="Completions" parent="menu_eco_social_training_root" action="action_eco_social_training_completion" sequence="20" />
+</odoo>

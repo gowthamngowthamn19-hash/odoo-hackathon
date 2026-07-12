@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_social_training_root" name="Trainings" parent="eco_base.menu_eco_social" sequence="40" />
+
+    </odoo>

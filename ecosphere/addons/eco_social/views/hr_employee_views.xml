@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_employee_form_inherit_social" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.social</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Social &amp; CSR" name="social_csr">
+                    <group>
+                        <group string="Volunteer Summary">
+                            <field name="total_volunteer_hours"/>
+                        </group>
+                    </group>
+                    <group string="Participations">
+                        <field name="participation_ids" nolabel="1">
+                            <list>
+                                <field name="activity_id"/>
+                                <field name="status"/>
+                                <field name="hours_credited"/>
+                            </list>
+                        </field>
+                    </group>
+                    <group string="Training Completions">
+                        <field name="training_completion_ids" nolabel="1">
+                            <list>
+                                <field name="training_id"/>
+                                <field name="completion_date"/>
+                                <field name="status"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

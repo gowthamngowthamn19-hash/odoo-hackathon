@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_diversity_metric_tree" model="ir.ui.view">
+        <field name="name">eco.diversity.metric.tree</field>
+        <field name="model">eco.diversity.metric</field>
+        <field name="arch" type="xml">
+            <list string="Diversity Metrics">
+                <field name="department_id"/>
+                <field name="date"/>
+                <field name="female_ratio"/>
+                <field name="minority_ratio"/>
+                <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eco_diversity_metric_form" model="ir.ui.view">
+        <field name="name">eco.diversity.metric.form</field>
+        <field name="model">eco.diversity.metric</field>
+        <field name="arch" type="xml">
+            <form string="Diversity Metric">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" invisible="status != 'draft'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="department_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="female_ratio"/>
+                            <field name="minority_ratio"/>
+                            <field name="disability_ratio"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eco_diversity_metric" model="ir.actions.act_window">
+        <field name="name">Diversity Metrics</field>
+        <field name="res_model">eco.diversity.metric</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

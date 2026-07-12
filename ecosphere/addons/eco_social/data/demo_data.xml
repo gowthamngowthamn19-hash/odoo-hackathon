@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- CSR Activities -->
+        <record id="demo_csr_activity_1" model="eco.csr.activity">
+            <field name="name">City Park Cleanup</field>
+            <field name="description">Weekend community service to clean the local park.</field>
+            <field name="start_date" eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(DateTime.today() + relativedelta(days=6)).strftime('%Y-%m-%d')"/>
+            <field name="location">Central Park</field>
+            <field name="reward_points">50</field>
+            <field name="volunteer_hours_awarded">4.0</field>
+            <field name="status">published</field>
+        </record>
+
+        <record id="demo_csr_activity_2" model="eco.csr.activity">
+            <field name="name">Food Bank Volunteering</field>
+            <field name="description">Sorting and packing donations at the regional food bank.</field>
+            <field name="start_date" eval="(DateTime.today() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+            <field name="location">Regional Food Bank</field>
+            <field name="reward_points">100</field>
+            <field name="volunteer_hours_awarded">8.0</field>
+            <field name="status">active</field>
+        </record>
+
+        <!-- Trainings -->
+        <record id="demo_training_1" model="eco.social.training">
+            <field name="name">Diversity and Inclusion Basics</field>
+            <field name="description">Mandatory training for all new hires.</field>
+            <field name="category">dei</field>
+        </record>
+
+        <record id="demo_training_2" model="eco.social.training">
+            <field name="name">Workplace Ethics</field>
+            <field name="description">Annual ethics refresher course.</field>
+            <field name="category">ethics</field>
+        </record>
+    </data>
+</odoo>
