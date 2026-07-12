@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_challenges" name="Challenges" parent="menu_eco_gamification_root" action="action_eco_challenge" sequence="10" />
+
+    <menuitem id="menu_eco_participations" name="Participations" parent="menu_eco_gamification_root" action="action_eco_challenge_participation" sequence="20" />
+              
+    <menuitem id="menu_eco_leaderboard" name="Leaderboard" parent="menu_eco_gamification_root" action="action_eco_leaderboard" sequence="30" />
+              
+    <menuitem id="menu_eco_redemptions" name="Reward Redemptions" parent="menu_eco_gamification_root" action="action_eco_reward_redemption" sequence="40" />
+
+    <menuitem id="menu_eco_xp_transaction" name="XP Ledger" parent="menu_eco_gamification_root" action="action_eco_xp_transaction" sequence="50" />
+
+    <menuitem id="menu_eco_xp_rule" name="XP Rules" parent="menu_eco_gamification_config" action="action_eco_xp_rule" sequence="10" />
+              
+    <menuitem id="menu_eco_gamification_event" name="Event Log" parent="menu_eco_gamification_config" action="action_eco_gamification_event" sequence="20" />
+</odoo>

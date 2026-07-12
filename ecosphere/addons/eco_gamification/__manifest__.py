@@ -1,0 +1,23 @@
+{
+    'name': 'EcoSphere - Gamification',
+    'version': '18.0.1.0.0',
+    'category': 'Sustainability',
+    'summary': 'ESG Gamification & Rewards',
+    'depends': ['eco_base', 'eco_environment', 'eco_social', 'eco_governance', 'eco_platform'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/menu_roots.xml',
+        'views/gamification_event_views.xml',
+        'views/challenge_views.xml',
+        'views/participation_views.xml',
+        'views/xp_rule_views.xml',
+        'views/xp_transaction_views.xml',
+        'views/reward_redemption_views.xml',
+        'views/leaderboard_views.xml',
+        'data/demo_data.xml',
+        'views/menu_actions.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'license': 'LGPL-3',
+}

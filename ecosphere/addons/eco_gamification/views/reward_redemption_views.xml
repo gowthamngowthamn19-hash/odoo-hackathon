@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_reward_redemption_search" model="ir.ui.view">
+        <field name="name">eco.reward.redemption.search</field>
+        <field name="model">eco.reward.redemption</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="reward_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="group_emp" context="{'group_by':'employee_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
+                    <filter string="Reward" name="group_reward" context="{'group_by':'reward_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_eco_reward_redemption" model="ir.actions.act_window">
+        <field name="name">Reward Redemptions</field>
+        <field name="res_model">eco.reward.redemption</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

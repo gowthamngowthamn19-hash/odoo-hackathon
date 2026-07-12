@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- XP Rules -->
+        <record id="demo_xp_rule_1" model="eco.xp.rule">
+            <field name="action_name">CSR Completed</field>
+            <field name="action_code">csr_completed</field>
+            <field name="xp_value">100</field>
+        </record>
+        <record id="demo_xp_rule_2" model="eco.xp.rule">
+            <field name="action_name">Challenge Completed</field>
+            <field name="action_code">challenge_completed</field>
+            <field name="xp_value">150</field>
+        </record>
+        <record id="demo_xp_rule_3" model="eco.xp.rule">
+            <field name="action_name">Policy Acknowledged</field>
+            <field name="action_code">policy_acknowledged</field>
+            <field name="xp_value">10</field>
+        </record>
+        <record id="demo_xp_rule_4" model="eco.xp.rule">
+            <field name="action_name">Compliance Resolved</field>
+            <field name="action_code">compliance_resolved</field>
+            <field name="xp_value">75</field>
+        </record>
+
+        <!-- Badges -->
+        <record id="demo_badge_1" model="eco.badge">
+            <field name="name">Green Beginner</field>
+            <field name="xp_required">100</field>
+            <field name="status">active</field>
+        </record>
+        <record id="demo_badge_2" model="eco.badge">
+            <field name="name">Eco Warrior</field>
+            <field name="xp_required">500</field>
+            <field name="status">active</field>
+        </record>
+        <record id="demo_badge_3" model="eco.badge">
+            <field name="name">Carbon Hero</field>
+            <field name="xp_required">1000</field>
+            <field name="status">active</field>
+        </record>
+
+        <!-- Rewards -->
+        <record id="demo_reward_1" model="eco.reward">
+            <field name="name">Coffee Coupon</field>
+            <field name="points_required">200</field>
+            <field name="stock">50</field>
+            <field name="status">active</field>
+        </record>
+        <record id="demo_reward_2" model="eco.reward">
+            <field name="name">Movie Ticket</field>
+            <field name="points_required">500</field>
+            <field name="stock">20</field>
+            <field name="status">active</field>
+        </record>
+
+        <!-- Challenges -->
+        <record id="demo_challenge_1" model="eco.challenge">
+            <field name="title">Plastic Free Week</field>
+            <field name="description">Avoid all single-use plastics for an entire week.</field>
+            <field name="difficulty">medium</field>
+            <field name="xp_reward">200</field>
+            <field name="start_date" eval="(DateTime.today()).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(DateTime.today() + relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+            <field name="status">active</field>
+        </record>
+        <record id="demo_challenge_2" model="eco.challenge">
+            <field name="title">Walk To Work</field>
+            <field name="description">Walk to work every day this week.</field>
+            <field name="difficulty">hard</field>
+            <field name="xp_reward">300</field>
+            <field name="start_date" eval="(DateTime.today()).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(DateTime.today() + relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+            <field name="status">active</field>
+        </record>
+    </data>
+</odoo>

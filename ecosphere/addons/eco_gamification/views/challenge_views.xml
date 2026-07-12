@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_challenge_tree" model="ir.ui.view">
+        <field name="name">eco.challenge.tree</field>
+        <field name="model">eco.challenge</field>
+        <field name="arch" type="xml">
+            <list string="Challenges">
+                <field name="title"/>
+                <field name="category_id"/>
+                <field name="difficulty"/>
+                <field name="xp_reward"/>
+                <field name="status" widget="badge" decoration-info="status == 'published'" decoration-success="status == 'active'" decoration-muted="status in ('completed', 'archived')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eco_challenge_search" model="ir.ui.view">
+        <field name="name">eco.challenge.search</field>
+        <field name="model">eco.challenge</field>
+        <field name="arch" type="xml">
+            <search string="Challenges">
+                <field name="title"/>
+                <filter string="Active" name="active" domain="[('status', '=', 'active')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Difficulty" name="group_difficulty" context="{'group_by':'difficulty'}"/>
+                    <filter string="Department" name="group_dept" context="{'group_by':'department_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
+                    <filter string="Category" name="group_category" context="{'group_by':'category_id'}"/>
+                    <filter string="Start Date" name="group_date" context="{'group_by':'start_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eco_challenge_form" model="ir.ui.view">
+        <field name="name">eco.challenge.form</field>
+        <field name="model">eco.challenge</field>
+        <field name="arch" type="xml">
+            <form string="Challenge">
+                <header>
+                    <button name="action_publish" string="Publish" type="object" class="oe_highlight" invisible="status != 'draft'"/>
+                    <button name="action_start" string="Start" type="object" class="oe_highlight" invisible="status != 'published'"/>
+                    <button name="action_review" string="Under Review" type="object" class="oe_highlight" invisible="status != 'active'"/>
+                    <button name="action_complete" string="Complete" type="object" class="oe_highlight" invisible="status != 'under_review'"/>
+                    <button name="action_archive" string="Archive" type="object" invisible="status not in ('draft', 'completed')"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,published,active,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="title" placeholder="Challenge Title"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category_id"/>
+                            <field name="department_id"/>
+                            <field name="difficulty"/>
+                            <field name="evidence_required"/>
+                        </group>
+                        <group>
+                            <field name="xp_reward"/>
+                            <field name="maximum_participants"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eco_challenge" model="ir.actions.act_window">
+        <field name="name">ESG Challenges</field>
+        <field name="res_model">eco.challenge</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
