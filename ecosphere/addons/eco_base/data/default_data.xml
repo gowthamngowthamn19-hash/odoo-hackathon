@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default Categories -->
+        <record id="cat_env_reduction" model="eco.category">
+            <field name="name">Emission Reduction</field>
+            <field name="type">csr</field>
+            <field name="description">Activities that directly reduce carbon footprint.</field>
+        </record>
+        <record id="cat_soc_volunteer" model="eco.category">
+            <field name="name">Volunteering</field>
+            <field name="type">csr</field>
+            <field name="description">Community service and volunteering activities.</field>
+        </record>
+        <record id="cat_gov_audit" model="eco.category">
+            <field name="name">Internal Audit</field>
+            <field name="type">audit</field>
+            <field name="description">Governance audits and compliance checks.</field>
+        </record>
+
+        <!-- Default Badges -->
+        <record id="badge_eco_warrior" model="eco.badge">
+            <field name="name">Eco Warrior</field>
+            <field name="description">Awarded for completing 5 environmental challenges.</field>
+            <field name="xp_required">500</field>
+        </record>
+        <record id="badge_social_champion" model="eco.badge">
+            <field name="name">Social Champion</field>
+            <field name="description">Awarded for 50+ volunteer hours.</field>
+            <field name="xp_required">800</field>
+        </record>
+
+        <!-- Default Rewards -->
+        <record id="reward_coffee_voucher" model="eco.reward">
+            <field name="name">Free Coffee Voucher</field>
+            <field name="description">A voucher for a free coffee at the cafeteria.</field>
+            <field name="points_required">100</field>
+            <field name="stock">50</field>
+        </record>
+        <record id="reward_extra_pto" model="eco.reward">
+            <field name="name">Half-Day PTO</field>
+            <field name="description">Earn an extra half day of paid time off.</field>
+            <field name="points_required">1500</field>
+            <field name="stock">10</field>
+        </record>
+    </data>
+</odoo>

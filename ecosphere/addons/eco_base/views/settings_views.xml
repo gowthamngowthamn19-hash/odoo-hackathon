@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_eco" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.eco</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="EcoSphere" string="EcoSphere" name="eco_base" groups="eco_base.group_eco_administrator">
+                    <block title="General ESG Settings" name="eco_general">
+                        <setting id="auto_emission_calculation" help="Automatically calculate carbon emissions based on utility inputs">
+                            <field name="auto_emission_calculation"/>
+                        </setting>
+                        <setting id="require_csr_evidence" help="Require upload of evidence document for CSR activities">
+                            <field name="require_csr_evidence"/>
+                        </setting>
+                    </block>
+                    <block title="Gamification Settings" name="eco_gamification">
+                        <setting id="auto_badge_award" help="Automatically award badges to employees when criteria are met">
+                            <field name="auto_badge_award"/>
+                        </setting>
+                        <setting id="notification_enabled" help="Enable notifications for ESG updates and rewards">
+                            <field name="notification_enabled"/>
+                        </setting>
+                    </block>
+                    <block title="ESG Scoring Weights" name="eco_weights">
+                        <setting help="Weightage configuration for overall ESG score computation">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="environment_weight" class="col-lg-3 o_light_label"/>
+                                    <field name="environment_weight" class="col-lg-3"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="social_weight" class="col-lg-3 o_light_label"/>
+                                    <field name="social_weight" class="col-lg-3"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="governance_weight" class="col-lg-3 o_light_label"/>
+                                    <field name="governance_weight" class="col-lg-3"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_eco_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'eco_base', 'bin_size': False}</field>
+    </record>
+
+    <menuitem id="menu_eco_configuration" name="Configuration" parent="menu_eco_settings_root" sequence="100" action="action_eco_settings"/>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eco_category_employee,eco.category.employee,model_eco_category,group_eco_employee,1,0,0,0
+access_eco_category_manager,eco.category.manager,model_eco_category,group_eco_manager,1,1,1,1
+access_eco_badge_employee,eco.badge.employee,model_eco_badge,group_eco_employee,1,0,0,0
+access_eco_badge_manager,eco.badge.manager,model_eco_badge,group_eco_manager,1,1,1,1
+access_eco_reward_employee,eco.reward.employee,model_eco_reward,group_eco_employee,1,0,0,0
+access_eco_reward_manager,eco.reward.manager,model_eco_reward,group_eco_manager,1,1,1,1

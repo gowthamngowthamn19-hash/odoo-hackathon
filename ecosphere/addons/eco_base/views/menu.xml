@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top Level Menu -->
+    <menuitem id="menu_eco_root" name="EcoSphere" sequence="10"/>
+
+    <!-- Sidebar Menus -->
+    <menuitem id="menu_eco_dashboard" name="Dashboard" parent="menu_eco_root" sequence="10" action="action_eco_dashboard"/>
+    <menuitem id="menu_eco_environmental" name="Environmental" parent="menu_eco_root" sequence="20"/>
+    <menuitem id="menu_eco_social" name="Social" parent="menu_eco_root" sequence="30"/>
+    <menuitem id="menu_eco_governance" name="Governance" parent="menu_eco_root" sequence="40"/>
+    <menuitem id="menu_eco_gamification" name="Gamification" parent="menu_eco_root" sequence="50"/>
+    <menuitem id="menu_eco_reports" name="Reports" parent="menu_eco_root" sequence="60"/>
+    <menuitem id="menu_eco_settings_root" name="Settings" parent="menu_eco_root" sequence="100"/>
+</odoo>

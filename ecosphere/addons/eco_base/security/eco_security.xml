@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Category: EcoSphere -->
+        <record id="module_category_ecosphere" model="ir.module.category">
+            <field name="name">EcoSphere</field>
+            <field name="description">ESG Management Platform</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Group: Employee -->
+        <record id="group_eco_employee" model="res.groups">
+            <field name="name">Employee</field>
+            <field name="category_id" ref="module_category_ecosphere"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Group: Department Head -->
+        <record id="group_eco_department_head" model="res.groups">
+            <field name="name">Department Head</field>
+            <field name="category_id" ref="module_category_ecosphere"/>
+            <field name="implied_ids" eval="[(4, ref('group_eco_employee'))]"/>
+        </record>
+
+        <!-- Group: ESG Manager -->
+        <record id="group_eco_manager" model="res.groups">
+            <field name="name">ESG Manager</field>
+            <field name="category_id" ref="module_category_ecosphere"/>
+            <field name="implied_ids" eval="[(4, ref('group_eco_department_head'))]"/>
+        </record>
+
+        <!-- Group: Eco Administrator -->
+        <record id="group_eco_administrator" model="res.groups">
+            <field name="name">Eco Administrator</field>
+            <field name="category_id" ref="module_category_ecosphere"/>
+            <field name="implied_ids" eval="[(4, ref('group_eco_manager'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>

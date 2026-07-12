@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_badge_tree" model="ir.ui.view">
+        <field name="name">eco.badge.tree</field>
+        <field name="model">eco.badge</field>
+        <field name="arch" type="xml">
+            <tree string="Badges">
+                <field name="name"/>
+                <field name="xp_required"/>
+                <field name="status" widget="badge" decoration-success="status == 'active'" decoration-muted="status == 'archived'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_eco_badge_form" model="ir.ui.view">
+        <field name="name">eco.badge.form</field>
+        <field name="model">eco.badge</field>
+        <field name="arch" type="xml">
+            <form string="Badge">
+                <sheet>
+                    <field name="icon" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Badge Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="xp_required"/>
+                            <field name="challenge_required"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eco_badge" model="ir.actions.act_window">
+        <field name="name">Badges</field>
+        <field name="res_model">eco.badge</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_eco_gamification_badge" name="Badges" parent="menu_eco_gamification" action="action_eco_badge" sequence="10"/>
+</odoo>
