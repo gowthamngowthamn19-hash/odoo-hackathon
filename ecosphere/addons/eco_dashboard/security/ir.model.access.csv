@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dashboard_layout_admin,layout.admin,model_eco_dashboard_layout,eco_base.group_eco_administrator,1,1,1,1
+access_dashboard_layout_user,layout.user,model_eco_dashboard_layout,base.group_user,1,1,0,0

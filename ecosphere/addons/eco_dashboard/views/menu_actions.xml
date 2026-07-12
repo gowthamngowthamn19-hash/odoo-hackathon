@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="eco_base.menu_eco_root" name="EcoSphere" web_icon="eco_base,static/description/icon.png" action="action_eco_dashboard_main" sequence="1" />
+
+    <menuitem id="menu_eco_dashboard_config" name="Dashboard Settings" parent="eco_base.menu_eco_settings_root" action="action_eco_dashboard_layout" sequence="50" />
+</odoo>

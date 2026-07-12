@@ -1,0 +1,31 @@
+{
+    'name': 'EcoSphere Dashboard',
+    'version': '18.0.1.0.0',
+    'category': 'Environment',
+    'summary': 'ESG Analytics Dashboard',
+    'depends': ['eco_base', 'eco_environment', 'eco_social', 'eco_governance', 'eco_gamification', 'eco_platform'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/dashboard.xml',
+        'views/dashboard_layout_views.xml',
+        'views/menu_actions.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'eco_dashboard/static/src/css/dashboard.scss',
+            'eco_dashboard/static/src/js/dashboard_store.js',
+            'eco_dashboard/static/src/js/widgets/widget_base.js',
+            'eco_dashboard/static/src/js/widgets/kpi_card.js',
+            'eco_dashboard/static/src/js/widgets/chart_widget.js',
+            'eco_dashboard/static/src/js/widgets/leaderboard_widget.js',
+            'eco_dashboard/static/src/js/widgets/recent_activity_widget.js',
+            'eco_dashboard/static/src/js/widgets/goal_tracker_widget.js',
+            'eco_dashboard/static/src/js/widgets/notification_widget.js',
+            'eco_dashboard/static/src/js/widgets/ai_placeholder.js',
+            'eco_dashboard/static/src/js/dashboard.js',
+            'eco_dashboard/static/src/xml/owl_templates.xml',
+        ],
+    },
+    'installable': True,
+    'application': True,
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default Layout Configuration for Executive Dashboard -->
+        <record id="layout_exec_1" model="eco.dashboard.layout">
+            <field name="name">Default Exec Layout</field>
+            <field name="widget_name">overall_esg</field>
+            <field name="position_x">0</field>
+            <field name="position_y">0</field>
+            <field name="width">1</field>
+            <field name="height">1</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="layout_exec_2" model="eco.dashboard.layout">
+            <field name="name">Default Exec Layout</field>
+            <field name="widget_name">env_score</field>
+            <field name="position_x">1</field>
+            <field name="position_y">0</field>
+            <field name="width">1</field>
+            <field name="height">1</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="layout_exec_3" model="eco.dashboard.layout">
+            <field name="name">Default Exec Layout</field>
+            <field name="widget_name">social_score</field>
+            <field name="position_x">2</field>
+            <field name="position_y">0</field>
+            <field name="width">1</field>
+            <field name="height">1</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="layout_exec_4" model="eco.dashboard.layout">
+            <field name="name">Default Exec Layout</field>
+            <field name="widget_name">gov_score</field>
+            <field name="position_x">3</field>
+            <field name="position_y">0</field>
+            <field name="width">1</field>
+            <field name="height">1</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="layout_exec_5" model="eco.dashboard.layout">
+            <field name="name">Default Exec Layout</field>
+            <field name="widget_name">carbon_trend</field>
+            <field name="position_x">0</field>
+            <field name="position_y">1</field>
+            <field name="width">2</field>
+            <field name="height">2</field>
+            <field name="sequence">50</field>
+        </record>
+        <record id="layout_exec_6" model="eco.dashboard.layout">
+            <field name="name">Default Exec Layout</field>
+            <field name="widget_name">esg_distribution</field>
+            <field name="position_x">2</field>
+            <field name="position_y">1</field>
+            <field name="width">1</field>
+            <field name="height">2</field>
+            <field name="sequence">60</field>
+        </record>
+        <record id="layout_exec_7" model="eco.dashboard.layout">
+            <field name="name">Default Exec Layout</field>
+            <field name="widget_name">dept_comparison</field>
+            <field name="position_x">3</field>
+            <field name="position_y">1</field>
+            <field name="width">1</field>
+            <field name="height">2</field>
+            <field name="sequence">70</field>
+        </record>
+    </data>
+</odoo>

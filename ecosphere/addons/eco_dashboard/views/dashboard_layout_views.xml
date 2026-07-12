@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_dashboard_layout_tree" model="ir.ui.view">
+        <field name="name">eco.dashboard.layout.tree</field>
+        <field name="model">eco.dashboard.layout</field>
+        <field name="arch" type="xml">
+            <list string="Dashboard Layouts">
+                <field name="name"/>
+                <field name="dashboard_type"/>
+                <field name="user_id"/>
+                <field name="widget_name"/>
+                <field name="sequence"/>
+                <field name="visible"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_eco_dashboard_layout" model="ir.actions.act_window">
+        <field name="name">Dashboard Layouts</field>
+        <field name="res_model">eco.dashboard.layout</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

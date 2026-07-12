@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="eco_dashboard.Main" owl="1">
+        <div class="eco-dashboard-container">
+            
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 style="font-weight: 700; background: linear-gradient(135deg, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">EcoSphere Executive Dashboard</h1>
+                <div class="d-flex gap-3">
+                    <button class="btn btn-outline-light"><i class="fa fa-filter"></i> Filters</button>
+                    <button class="btn btn-primary"><i class="fa fa-download"></i> Export PDF</button>
+                </div>
+            </div>
+
+            <t t-if="!state.isLoaded">
+                <div class="eco-dashboard-grid">
+                    <div class="eco-widget-w-1 eco-widget-h-1 eco-skeleton"></div>
+                    <div class="eco-widget-w-1 eco-widget-h-1 eco-skeleton"></div>
+                    <div class="eco-widget-w-1 eco-widget-h-1 eco-skeleton"></div>
+                    <div class="eco-widget-w-1 eco-widget-h-1 eco-skeleton"></div>
+                </div>
+            </t>
+            
+            <t t-else="">
+                <div class="eco-dashboard-grid">
+                    <t t-foreach="store.layout" t-as="item" t-key="item.id">
+                        <t t-set="ComponentClass" t-value="getWidgetComponent(item.widget_name)"/>
+                        <t t-if="ComponentClass">
+                            <div t-att-class="'eco-widget-w-' + item.width + ' eco-widget-h-' + item.height">
+                                <t t-component="ComponentClass" 
+                                   t-props="{ widgetName: item.widget_name, config: getWidgetConfig(item.widget_name) }"/>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

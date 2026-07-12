@@ -1,0 +1,77 @@
+// eco_dashboard/static/src/css/dashboard.scss
+.eco-dashboard-container {
+    background-color: #0f172a; // Tailwind Slate 900
+    color: #e2e8f0; // Tailwind Slate 200
+    min-height: 100vh;
+    padding: 24px;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    overflow-y: auto;
+    
+    // Grid layout for widgets
+    .eco-dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        grid-auto-rows: minmax(150px, auto);
+    }
+}
+
+.eco-glass-card {
+    background: rgba(30, 41, 59, 0.7); // Slate 800 with opacity
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: #94a3b8; // Slate 400
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.eco-kpi-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: auto;
+    background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.eco-widget-w-1 { grid-column: span 1; }
+.eco-widget-w-2 { grid-column: span 2; }
+.eco-widget-w-3 { grid-column: span 3; }
+.eco-widget-w-4 { grid-column: span 4; }
+
+.eco-widget-h-1 { grid-row: span 1; }
+.eco-widget-h-2 { grid-row: span 2; }
+.eco-widget-h-3 { grid-row: span 3; }
+
+// Loading Skeleton
+.eco-skeleton {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: rgba(51, 65, 85, 0.6); // Slate 700
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}
