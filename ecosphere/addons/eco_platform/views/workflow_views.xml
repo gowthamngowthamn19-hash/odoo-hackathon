@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_workflow_tree" model="ir.ui.view">
+        <field name="name">eco.workflow.tree</field>
+        <field name="model">eco.workflow</field>
+        <field name="arch" type="xml">
+            <list string="Workflows">
+                <field name="name"/>
+                <field name="res_model"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_eco_workflow" model="ir.actions.act_window">
+        <field name="name">Workflow Engine</field>
+        <field name="res_model">eco.workflow</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

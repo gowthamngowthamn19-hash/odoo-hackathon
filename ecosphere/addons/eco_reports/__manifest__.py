@@ -1,0 +1,21 @@
+{
+    'name': 'EcoSphere Reports',
+    'version': '18.0.1.0.0',
+    'category': 'Environment',
+    'summary': 'Enterprise Reporting Engine for ESG',
+    'depends': ['eco_base', 'eco_environment', 'eco_social', 'eco_governance', 'eco_gamification', 'eco_dashboard', 'eco_platform'],
+    'data': [
+        'security/ir.model.access.csv',
+        'reports/report_templates.xml',
+        'reports/executive_report.xml',
+        'views/menu_roots.xml',
+        'views/report_definition_views.xml',
+        'views/report_history_views.xml',
+        'views/report_scheduler_views.xml',
+        'views/wizard_views.xml',
+        'data/default_templates.xml',
+        'views/menu_actions.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

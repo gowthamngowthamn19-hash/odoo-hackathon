@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_monitoring_log_tree" model="ir.ui.view">
+        <field name="name">eco.monitoring.log.tree</field>
+        <field name="model">eco.monitoring.log</field>
+        <field name="arch" type="xml">
+            <list string="Monitoring Logs" create="false" edit="false">
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="metric_type"/>
+                <field name="latency"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_eco_monitoring_log" model="ir.actions.act_window">
+        <field name="name">System Monitoring</field>
+        <field name="res_model">eco.monitoring.log</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

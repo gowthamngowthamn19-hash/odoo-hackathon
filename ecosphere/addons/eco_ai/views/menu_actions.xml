@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_ai_prompts" name="AI Prompts" parent="menu_eco_ai_root" action="action_eco_ai_prompt" sequence="10" />
+
+    <menuitem id="menu_eco_ai_usage" name="Usage Analytics" parent="menu_eco_ai_root" action="action_eco_ai_usage" sequence="20" />
+
+    <menuitem id="menu_eco_ai_settings" name="AI Settings" parent="eco_base.menu_eco_settings_root" action="action_eco_ai_config_settings" sequence="70" />
+</odoo>

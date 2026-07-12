@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_platform_audit" name="Audit Logs" parent="menu_eco_platform_root" action="action_eco_audit_log" sequence="10" />
+
+    <menuitem id="menu_eco_platform_monitoring" name="System Monitoring" parent="menu_eco_platform_root" action="action_eco_monitoring_log" sequence="20" />
+
+    <menuitem id="menu_eco_platform_feature_flags" name="Feature Flags" parent="menu_eco_platform_root" action="action_eco_feature_flag" sequence="30" />
+              
+    <menuitem id="menu_eco_platform_workflows" name="Workflows" parent="menu_eco_platform_root" action="action_eco_workflow" sequence="40" />
+
+    <menuitem id="menu_eco_platform_notif_templates" name="Notification Templates" parent="menu_eco_platform_root" action="action_eco_notification_template" sequence="50" />
+
+    <menuitem id="menu_eco_platform_settings" name="Platform Settings" parent="menu_eco_platform_root" action="action_eco_platform_config_settings" sequence="100" />
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_reports_generate" name="Generate Report" parent="menu_eco_reports" action="action_generate_report_wizard" sequence="10" />
+              
+    <menuitem id="menu_eco_reports_history" name="Report History" parent="menu_eco_reports" action="action_eco_report_history" sequence="20" />
+              
+    <menuitem id="menu_eco_reports_schedules" name="Scheduled Reports" parent="menu_eco_reports" action="action_eco_report_scheduler" sequence="30" />
+
+    <menuitem id="menu_eco_reports_config" name="Report Definitions" parent="eco_base.menu_eco_settings_root" action="action_eco_report_definition" sequence="60" />
+</odoo>

@@ -43,31 +43,38 @@ class RewardRedemption(models.Model):
         })
         
         # Emit Event for negative XP (redemption)
-        if 'eco.event.bus' in self.env:
+        if 'eco.gamification.event' in self.env:
             for record in self:
-                self.env['eco.event.bus'].publish('gamification.event', {
+                event = self.env['eco.gamification.event'].create({
                     'event_code': 'REWARD_REDEEMED',
                     'event_name': f"Redeemed Reward: {record.reward_id.name}",
                     'employee_id': record.employee_id.id,
                     'reference_model': 'eco.reward.redemption',
                     'reference_id': record.id,
-                    'fallback_xp': -record.points_used
+                    'metadata': {'fallback_xp': -record.points_used}
                 })
+                if 'eco.event.processor' in self.env:
+                    self.env['eco.event.processor']._process_event(event)
+        return True
 
     def action_redeem(self):
         self.write({'status': 'redeemed'})
+        return True
 
     def action_cancel(self):
         for record in self:
             if record.status in ('approved', 'redeemed'):
-                if 'eco.event.bus' in self.env:
-                    self.env['eco.event.bus'].publish('gamification.event', {
+                if 'eco.gamification.event' in self.env:
+                    event = self.env['eco.gamification.event'].create({
                         'event_code': 'REWARD_REFUNDED',
                         'event_name': f"Cancelled Reward Refund: {record.reward_id.name}",
                         'employee_id': record.employee_id.id,
                         'reference_model': 'eco.reward.redemption',
                         'reference_id': record.id,
-                        'fallback_xp': record.points_used
+                        'metadata': {'fallback_xp': record.points_used}
                     })
+                    if 'eco.event.processor' in self.env:
+                        self.env['eco.event.processor']._process_event(event)
                 record.reward_id.stock += 1
         self.write({'status': 'cancelled'})
+        return True

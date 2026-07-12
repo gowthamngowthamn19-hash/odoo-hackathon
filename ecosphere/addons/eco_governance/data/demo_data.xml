@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- ESG Policies -->
+        <record id="demo_policy_1" model="eco.esg.policy">
+            <field name="name">Anti-Bribery and Corruption Policy</field>
+            <field name="description">Standard corporate policy for ethical business conduct.</field>
+            <field name="version">2.0</field>
+            <field name="effective_date" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+            <field name="status">published</field>
+        </record>
+
+        <!-- Compliance Issues Setup -->
+        <record id="demo_dept_gov" model="hr.department">
+            <field name="name">Governance Office</field>
+        </record>
+        
+        <record id="demo_employee_gov" model="hr.employee">
+            <field name="name">Alice Auditor</field>
+            <field name="department_id" ref="demo_dept_gov"/>
+        </record>
+
+        <record id="demo_issue_1" model="eco.compliance.issue">
+            <field name="name">Missing Supplier Certifications</field>
+            <field name="description">Several key suppliers are missing their annual ESG certifications.</field>
+            <field name="department_id" ref="demo_dept_gov"/>
+            <field name="owner_id" ref="demo_employee_gov"/>
+            <field name="severity">high</field>
+            <field name="due_date" eval="(DateTime.today() + relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+            <field name="status">open</field>
+        </record>
+        
+        <!-- Audits -->
+        <record id="demo_audit_1" model="eco.esg.audit">
+            <field name="name">Q3 Sustainability Audit</field>
+            <field name="department_id" ref="demo_dept_gov"/>
+            <field name="start_date" eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+            <field name="status">scheduled</field>
+        </record>
+    </data>
+</odoo>

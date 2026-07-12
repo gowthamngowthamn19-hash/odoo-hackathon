@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_report_generate_wizard" model="ir.ui.view">
+        <field name="name">eco.report.generate.wizard.form</field>
+        <field name="model">eco.report.generate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate ESG Report">
+                <sheet>
+                    <group>
+                        <field name="report_definition_id" options="{'no_create': True}"/>
+                        <field name="export_format"/>
+                    </group>
+                    <group string="Filters">
+                        <group>
+                            <field name="department_id"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Generate Report" name="action_generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_generate_report_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Report</field>
+        <field name="res_model">eco.report.generate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

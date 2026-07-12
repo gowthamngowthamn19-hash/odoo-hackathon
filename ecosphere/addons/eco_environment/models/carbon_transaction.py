@@ -53,14 +53,17 @@ class CarbonTransaction(models.Model):
         # Update metrics once per affected department (Rule 3 & 4)
         for dept in departments:
             self.env['eco.score.engine'].update_department_metrics(dept)
+        return True
             
     def action_cancel(self):
         for record in self:
             record.status = 'cancelled'
+        return True
 
     def action_draft(self):
         for record in self:
             record.status = 'draft'
+        return True
 
     def _check_emission_threshold(self):
         """

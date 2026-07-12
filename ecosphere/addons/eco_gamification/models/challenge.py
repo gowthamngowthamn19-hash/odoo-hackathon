@@ -37,18 +37,23 @@ class EcoChallenge(models.Model):
 
     def action_publish(self):
         self.write({'status': 'published'})
+        return True
 
     def action_start(self):
         self.write({'status': 'active'})
         if 'eco.event.bus' in self.env:
             for record in self:
                 self.env['eco.event.bus'].publish('challenge.active', {'challenge_id': record.id, 'title': record.title})
+        return True
 
     def action_review(self):
         self.write({'status': 'under_review'})
+        return True
 
     def action_complete(self):
         self.write({'status': 'completed'})
+        return True
 
     def action_archive(self):
         self.write({'status': 'archived'})
+        return True

@@ -49,3 +49,4 @@ class EnvironmentalGoal(models.Model):
         for record in self:
             record.status = 'active'
             record._compute_status()
+        return True

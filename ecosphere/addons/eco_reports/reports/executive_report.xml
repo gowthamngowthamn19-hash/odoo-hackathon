@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_executive_esg_template">
+        <t t-call="web.html_container">
+            <!-- Iterate over docs (usually the wizard or the definition, but our data payload is injected in rendering) -->
+            <!-- Note: the 'data' dictionary from the builder is available here -->
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- Cover Page / Header -->
+                    <h2 class="text-center mt-4" style="color: #0f172a;">Executive ESG Report</h2>
+                    <p class="text-center text-muted">Generated automatically by EcoSphere</p>
+                    
+                    <hr/>
+                    
+                    <!-- Executive Summary -->
+                    <div class="mt-4 mb-4">
+                        <h3 style="color: #10b981;">Executive Summary</h3>
+                        <p><t t-esc="data.get('ai_summary', 'ESG Metrics remain stable for this quarter.')"/></p>
+                    </div>
+                    
+                    <!-- KPIs Table -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h4>Key Performance Indicators</h4>
+                            <table class="table table-bordered table-sm">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Current Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-if="data.get('kpis')">
+                                        <t t-foreach="data['kpis']" t-as="kpi_key">
+                                            <tr>
+                                                <td><t t-esc="kpi_key"/></td>
+                                                <td>
+                                                    <t t-esc="data['kpis'][kpi_key].get('value', 0)"/>
+                                                    <t t-esc="data['kpis'][kpi_key].get('suffix', '')"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Filters Applied -->
+                    <div class="mt-5 text-muted small">
+                        <p><strong>Filters Applied:</strong></p>
+                        <ul>
+                            <t t-if="data.get('filters')">
+                                <t t-foreach="data['filters']" t-as="f_key">
+                                    <li><t t-esc="f_key"/>: <t t-esc="data['filters'][f_key]"/></li>
+                                </t>
+                            </t>
+                        </ul>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

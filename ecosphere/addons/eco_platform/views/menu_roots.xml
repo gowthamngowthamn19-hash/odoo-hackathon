@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_platform_root" name="Platform Setup" parent="eco_base.menu_eco_settings_root" sequence="90" />
+
+    </odoo>

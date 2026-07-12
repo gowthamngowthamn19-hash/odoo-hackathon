@@ -1,0 +1,21 @@
+{
+    'name': 'EcoSphere Platform',
+    'version': '18.0.1.0.0',
+    'category': 'Hidden/Platform',
+    'summary': 'Enterprise Infrastructure Layer',
+    'depends': ['eco_base', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/menu_roots.xml',
+        'views/platform_views.xml',
+        'views/notification_views.xml',
+        'views/workflow_views.xml',
+        'views/audit_views.xml',
+        'views/monitoring_views.xml',
+        'views/feature_flag_views.xml',
+        'views/menu_actions.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}

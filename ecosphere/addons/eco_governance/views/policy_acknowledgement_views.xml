@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_policy_acknowledgement_tree" model="ir.ui.view">
+        <field name="name">eco.policy.acknowledgement.tree</field>
+        <field name="model">eco.policy.acknowledgement</field>
+        <field name="arch" type="xml">
+            <list string="Policy Acknowledgements">
+                <field name="policy_id"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="date_acknowledged"/>
+                <field name="status" widget="badge" decoration-warning="status == 'pending'" decoration-success="status == 'acknowledged'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eco_policy_acknowledgement_form" model="ir.ui.view">
+        <field name="name">eco.policy.acknowledgement.form</field>
+        <field name="model">eco.policy.acknowledgement</field>
+        <field name="arch" type="xml">
+            <form string="Policy Acknowledgement">
+                <header>
+                    <button name="action_acknowledge" string="Acknowledge" type="object" class="oe_highlight" invisible="status != 'pending'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="pending,acknowledged"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="policy_id"/>
+                            <field name="employee_id"/>
+                            <field name="department_id"/>
+                        </group>
+                        <group>
+                            <field name="date_acknowledged"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eco_policy_acknowledgement" model="ir.actions.act_window">
+        <field name="name">Acknowledgements</field>
+        <field name="res_model">eco.policy.acknowledgement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

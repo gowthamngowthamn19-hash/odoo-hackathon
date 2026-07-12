@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_executive_esg" model="ir.actions.report">
+        <field name="name">Executive ESG Report</field>
+        <field name="model">eco.report.definition</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">eco_reports.report_executive_esg_template</field>
+        <field name="report_file">eco_reports.report_executive_esg_template</field>
+        <field name="print_report_name">'Executive_ESG_Report_%s' % (time.strftime('%Y%m%d'))</field>
+        <field name="binding_model_id" ref="model_eco_report_definition"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

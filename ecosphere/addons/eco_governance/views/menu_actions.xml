@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_esg_policy" name="Policies" parent="eco_base.menu_eco_governance" action="action_eco_esg_policy" sequence="10" />
+
+    <menuitem id="menu_eco_policy_acknowledgement" name="Acknowledgements" parent="eco_base.menu_eco_governance" action="action_eco_policy_acknowledgement" sequence="20" />
+
+    <menuitem id="menu_eco_esg_audit" name="Audits" parent="eco_base.menu_eco_governance" action="action_eco_esg_audit" sequence="30" />
+
+    <menuitem id="menu_eco_compliance_issue" name="Compliance Issues" parent="eco_base.menu_eco_governance" action="action_eco_compliance_issue" sequence="40" />
+</odoo>

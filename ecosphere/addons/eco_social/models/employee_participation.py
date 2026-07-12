@@ -16,12 +16,13 @@ class EmployeeParticipation(models.Model):
         ('rejected', 'Rejected')
     ], string='Status', default='joined', tracking=True)
     
-    proof_attachment = fields.Binary(string='Proof of Participation', tracking=True)
+    proof_attachment = fields.Binary(string='Proof of Participation')
     hours_credited = fields.Float(string='Hours Credited', tracking=True, readonly=True)
 
     def action_submit_proof(self):
         for record in self:
             record.status = 'proof_submitted'
+        return True
 
     def action_approve(self):
         departments = self.env['hr.department']
@@ -34,12 +35,14 @@ class EmployeeParticipation(models.Model):
             employees |= record.employee_id
             
         # Centralized score updates
-        for dept in departments:
+        for dept in departments.sudo():
             self.env['eco.social.score.engine'].update_department_social_metrics(dept)
-        for emp in employees:
+        for emp in employees.sudo():
             emp._compute_total_volunteer_hours()
+        return True
 
     def action_reject(self):
         for record in self:
             record.status = 'rejected'
             record.hours_credited = 0.0
+        return True

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_ai_root" name="Copilot &amp; AI" parent="eco_base.menu_eco_root" sequence="25" />
+              
+    </odoo>

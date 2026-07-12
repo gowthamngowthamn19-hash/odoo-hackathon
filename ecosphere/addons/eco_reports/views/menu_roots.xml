@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_reports" name="Reports" parent="eco_base.menu_eco_root" sequence="20" />
+
+    </odoo>

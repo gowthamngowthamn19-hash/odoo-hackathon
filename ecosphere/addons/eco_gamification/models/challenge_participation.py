@@ -11,7 +11,7 @@ class ChallengeParticipation(models.Model):
     joined_date = fields.Datetime(string='Joined Date', default=fields.Datetime.now, readonly=True)
     
     progress = fields.Float(string='Progress (%)', default=0.0, tracking=True)
-    proof_attachment = fields.Binary(string='Proof Attachment', tracking=True)
+    proof_attachment = fields.Binary(string='Proof Attachment')
     proof_notes = fields.Text(string='Proof Notes', tracking=True)
     submitted_date = fields.Datetime(string='Submitted Date', readonly=True)
     
@@ -42,6 +42,7 @@ class ChallengeParticipation(models.Model):
 
     def action_in_progress(self):
         self.write({'status': 'in_progress'})
+        return True
 
     def action_submit_proof(self):
         for record in self:
@@ -51,6 +52,7 @@ class ChallengeParticipation(models.Model):
             'status': 'proof_submitted',
             'submitted_date': fields.Datetime.now()
         })
+        return True
 
     def action_approve(self):
         self.write({
@@ -59,16 +61,20 @@ class ChallengeParticipation(models.Model):
             'reviewed_date': fields.Datetime.now()
         })
         
-        # Emit Event-Driven gamification payload for all approved records
-        if 'eco.event.bus' in self.env:
+        # Create Gamification Event and process it immediately
+        if 'eco.gamification.event' in self.env:
             for record in self:
-                self.env['eco.event.bus'].publish('gamification.event', {
+                event = self.env['eco.gamification.event'].create({
                     'event_code': 'CHALLENGE_COMPLETED',
                     'event_name': f"Completed Challenge: {record.challenge_id.title}",
                     'employee_id': record.employee_id.id,
                     'reference_model': 'eco.challenge.participation',
                     'reference_id': record.id,
-                    'fallback_xp': record.challenge_id.xp_reward
+                    'metadata': {'fallback_xp': record.challenge_id.xp_reward}
                 })
+                # Process the event to generate XP transaction
+                if 'eco.event.processor' in self.env:
+                    self.env['eco.event.processor']._process_event(event)
         
         self.write({'status': 'completed'})
+        return True

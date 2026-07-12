@@ -25,19 +25,24 @@ class CsrActivity(models.Model):
     def action_publish(self):
         for record in self:
             record.status = 'published'
+        return True
 
     def action_start(self):
         for record in self:
             record.status = 'active'
+        return True
 
     def action_complete(self):
         for record in self:
             record.status = 'completed'
+        return True
 
     def action_archive(self):
         for record in self:
             record.status = 'archived'
+        return True
 
     def action_draft(self):
         for record in self:
             record.status = 'draft'
+        return True

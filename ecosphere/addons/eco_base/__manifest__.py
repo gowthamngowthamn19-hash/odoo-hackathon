@@ -10,12 +10,12 @@
         'security/eco_security.xml',
         'security/ir.model.access.csv',
         'data/default_data.xml',
+        'views/menu_roots.xml',
         'views/dashboard_views.xml',
         'views/category_views.xml',
         'views/badge_views.xml',
         'views/reward_views.xml',
         'views/settings_views.xml',
-        'views/menu.xml',
     ],
     'assets': {
         'web.assets_backend': [

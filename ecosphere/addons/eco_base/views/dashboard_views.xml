@@ -4,4 +4,6 @@
         <field name="name">ESG Dashboard</field>
         <field name="tag">eco_base.dashboard</field>
     </record>
+
+    <menuitem id="menu_eco_dashboard" name="Dashboard" parent="menu_eco_root" sequence="10" action="action_eco_dashboard"/>
 </odoo>
