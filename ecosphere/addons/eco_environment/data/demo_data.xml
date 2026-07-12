@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Emission Factors -->
+        <record id="demo_ef_electricity" model="eco.emission.factor">
+            <field name="name">Electricity</field>
+            <field name="category">energy</field>
+            <field name="unit">kWh</field>
+            <field name="factor">0.453</field>
+            <field name="source">EPA 2023</field>
+        </record>
+
+        <record id="demo_ef_diesel" model="eco.emission.factor">
+            <field name="name">Diesel</field>
+            <field name="category">transport</field>
+            <field name="unit">Liters</field>
+            <field name="factor">2.68</field>
+            <field name="source">DEFRA 2023</field>
+        </record>
+
+        <record id="demo_ef_petrol" model="eco.emission.factor">
+            <field name="name">Petrol</field>
+            <field name="category">transport</field>
+            <field name="unit">Liters</field>
+            <field name="factor">2.31</field>
+            <field name="source">DEFRA 2023</field>
+        </record>
+
+        <record id="demo_ef_gas" model="eco.emission.factor">
+            <field name="name">Natural Gas</field>
+            <field name="category">energy</field>
+            <field name="unit">m3</field>
+            <field name="factor">2.02</field>
+            <field name="source">EPA 2023</field>
+        </record>
+
+        <record id="demo_ef_paper" model="eco.emission.factor">
+            <field name="name">Paper</field>
+            <field name="category">material</field>
+            <field name="unit">kg</field>
+            <field name="factor">0.94</field>
+            <field name="source">EPA 2023</field>
+        </record>
+        
+        <record id="demo_ef_flights" model="eco.emission.factor">
+            <field name="name">Flights</field>
+            <field name="category">transport</field>
+            <field name="unit">km</field>
+            <field name="factor">0.15</field>
+            <field name="source">DEFRA 2023</field>
+        </record>
+
+        <!-- Department for Demo Purposes -->
+        <record id="demo_dept_sustainability" model="hr.department">
+            <field name="name">Sustainability Office</field>
+        </record>
+
+        <!-- Department Environmental Goals -->
+        <record id="demo_goal_1" model="eco.environmental.goal">
+            <field name="name">Reduce Q3 Electricity Emissions</field>
+            <field name="department_id" ref="demo_dept_sustainability"/>
+            <field name="target_value">5000</field>
+            <field name="deadline" eval="(DateTime.today() + relativedelta(months=3)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="demo_goal_2" model="eco.environmental.goal">
+            <field name="name">Zero Waste to Landfill</field>
+            <field name="department_id" ref="demo_dept_sustainability"/>
+            <field name="target_value">100</field>
+            <field name="deadline" eval="(DateTime.today() + relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_environmental_goal_tree" model="ir.ui.view">
+        <field name="name">eco.environmental.goal.tree</field>
+        <field name="model">eco.environmental.goal</field>
+        <field name="arch" type="xml">
+            <list string="Environmental Goals">
+                <field name="name"/>
+                <field name="department_id"/>
+                <field name="deadline"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'completed'" decoration-warning="status == 'active'" decoration-danger="status == 'expired'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eco_environmental_goal_form" model="ir.ui.view">
+        <field name="name">eco.environmental.goal.form</field>
+        <field name="model">eco.environmental.goal</field>
+        <field name="arch" type="xml">
+            <form string="Environmental Goal">
+                <header>
+                    <button name="action_activate" string="Activate" type="object" class="oe_highlight" invisible="status != 'draft'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,active,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g., Reduce Q3 Emissions by 10%"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="department_id"/>
+                            <field name="deadline"/>
+                        </group>
+                        <group>
+                            <field name="current_value"/>
+                            <field name="target_value"/>
+                            <field name="progress" widget="progressbar"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eco_environmental_goal_search" model="ir.ui.view">
+        <field name="name">eco.environmental.goal.search</field>
+        <field name="model">eco.environmental.goal</field>
+        <field name="arch" type="xml">
+            <search string="Search Goals">
+                <field name="name"/>
+                <field name="department_id"/>
+                <filter string="Active" name="active" domain="[('status', '=', 'active')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Department" name="group_by_department" context="{'group_by': 'department_id'}"/>
+                    <filter string="Status" name="group_by_status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eco_environmental_goal" model="ir.actions.act_window">
+        <field name="name">Environmental Goals</field>
+        <field name="res_model">eco.environmental.goal</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eco_environmental_goal_search"/>
+    </record>
+</odoo>

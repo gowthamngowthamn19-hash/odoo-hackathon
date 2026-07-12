@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><menuitem id="menu_eco_emission_factor" name="Emission Factors" parent="eco_base.menu_eco_environmental" action="action_eco_emission_factor" sequence="10" />
+
+    <menuitem id="menu_eco_carbon_transaction" name="Carbon Transactions" parent="eco_base.menu_eco_environmental" action="action_eco_carbon_transaction" sequence="20" />
+
+    <menuitem id="menu_eco_environmental_goal" name="Environmental Goals" parent="eco_base.menu_eco_environmental" action="action_eco_environmental_goal" sequence="30" />
+
+    <menuitem id="menu_eco_product_esg" name="Product ESG Profiles" parent="eco_base.menu_eco_environmental" action="action_eco_product_esg" sequence="40" />
+</odoo>

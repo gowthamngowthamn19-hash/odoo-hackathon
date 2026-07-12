@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_template_form_inherit_esg" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.esg</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="ESG Profile" name="esg_profile">
+                    <group>
+                        <group string="Sustainability Metrics">
+                            <field name="carbon_footprint"/>
+                            <field name="green_score"/>
+                            <field name="recyclable"/>
+                        </group>
+                        <group string="Supply Chain">
+                            <field name="supplier_rating"/>
+                        </group>
+                    </group>
+                    <group string="Packaging">
+                        <field name="packaging_notes" nolabel="1" placeholder="Details about sustainable packaging..."/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

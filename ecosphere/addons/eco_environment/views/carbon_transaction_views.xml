@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eco_carbon_transaction_tree" model="ir.ui.view">
+        <field name="name">eco.carbon.transaction.tree</field>
+        <field name="model">eco.carbon.transaction</field>
+        <field name="arch" type="xml">
+            <list string="Carbon Transactions">
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="department_id"/>
+                <field name="employee_id"/>
+                <field name="activity"/>
+                <field name="calculated_emission" sum="Total Emissions"/>
+                <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eco_carbon_transaction_form" model="ir.ui.view">
+        <field name="name">eco.carbon.transaction.form</field>
+        <field name="model">eco.carbon.transaction</field>
+        <field name="arch" type="xml">
+            <form string="Carbon Transaction">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" invisible="status != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object" invisible="status == 'draft'"/>
+                    <button name="action_cancel" string="Cancel" type="object" invisible="status == 'cancelled'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="department_id"/>
+                            <field name="employee_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="activity"/>
+                            <field name="emission_factor_id"/>
+                            <field name="quantity"/>
+                            <field name="calculated_emission"/>
+                        </group>
+                    </group>
+                    <group string="Integration" invisible="not source_model">
+                        <group>
+                            <field name="source_model"/>
+                            <field name="source_record_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eco_carbon_transaction_search" model="ir.ui.view">
+        <field name="name">eco.carbon.transaction.search</field>
+        <field name="model">eco.carbon.transaction</field>
+        <field name="arch" type="xml">
+            <search string="Search Carbon Transactions">
+                <field name="reference"/>
+                <field name="department_id"/>
+                <field name="employee_id"/>
+                <filter string="Draft" name="draft" domain="[('status', '=', 'draft')]"/>
+                <filter string="Confirmed" name="confirmed" domain="[('status', '=', 'confirmed')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Department" name="group_by_department" context="{'group_by': 'department_id'}"/>
+                    <filter string="Status" name="group_by_status" context="{'group_by': 'status'}"/>
+                    <filter string="Date" name="group_by_date" context="{'group_by': 'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eco_carbon_transaction" model="ir.actions.act_window">
+        <field name="name">Carbon Transactions</field>
+        <field name="res_model">eco.carbon.transaction</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eco_carbon_transaction_search"/>
+    </record>
+</odoo>

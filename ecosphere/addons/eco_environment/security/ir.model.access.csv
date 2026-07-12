@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emission_factor_admin,emission.factor.admin,model_eco_emission_factor,eco_base.group_eco_administrator,1,1,1,1
+access_emission_factor_manager,emission.factor.manager,model_eco_emission_factor,eco_base.group_eco_manager,1,1,1,1
+access_emission_factor_head,emission.factor.head,model_eco_emission_factor,eco_base.group_eco_department_head,1,0,0,0
+access_emission_factor_emp,emission.factor.emp,model_eco_emission_factor,eco_base.group_eco_employee,1,0,0,0
+access_carbon_transaction_admin,carbon.transaction.admin,model_eco_carbon_transaction,eco_base.group_eco_administrator,1,1,1,1
+access_carbon_transaction_manager,carbon.transaction.manager,model_eco_carbon_transaction,eco_base.group_eco_manager,1,1,1,1
+access_carbon_transaction_head,carbon.transaction.head,model_eco_carbon_transaction,eco_base.group_eco_department_head,1,0,0,0
+access_carbon_transaction_emp,carbon.transaction.emp,model_eco_carbon_transaction,eco_base.group_eco_employee,1,0,0,0
+access_environmental_goal_admin,environmental.goal.admin,model_eco_environmental_goal,eco_base.group_eco_administrator,1,1,1,1
+access_environmental_goal_manager,environmental.goal.manager,model_eco_environmental_goal,eco_base.group_eco_manager,1,1,1,1
+access_environmental_goal_head,environmental.goal.head,model_eco_environmental_goal,eco_base.group_eco_department_head,1,0,0,0
+access_environmental_goal_emp,environmental.goal.emp,model_eco_environmental_goal,eco_base.group_eco_employee,1,0,0,0
