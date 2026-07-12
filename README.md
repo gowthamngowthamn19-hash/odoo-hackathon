@@ -246,7 +246,7 @@ EcoSphere implements four security roles.
 ## Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ecosphere.git
+git clone https://github.com/gowthamngowthamn19-hash/odoo-hackathon.git
 cd ecosphere
 ```
 
