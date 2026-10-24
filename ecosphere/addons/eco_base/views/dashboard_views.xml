@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="action_eco_dashboard" model="ir.actions.client">
-        <field name="name">ESG Dashboard</field>
-        <field name="tag">eco_base.dashboard</field>
+        <field name="name">EcoSphere Dashboard</field>
+        <field name="tag">eco_dashboard.main</field>
     </record>
 
-    <menuitem id="menu_eco_dashboard" name="Dashboard" parent="menu_eco_root" sequence="10" action="action_eco_dashboard"/>
+    <menuitem id="menu_eco_dashboard" name="EcoSphere Dashboard" parent="menu_eco_root" sequence="10" action="action_eco_dashboard" active="False"/>
 </odoo>

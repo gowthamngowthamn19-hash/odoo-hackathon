@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo><menuitem id="menu_eco_gamification_root" name="Gamification" parent="eco_base.menu_eco_root" sequence="40" />
-
-    <menuitem id="menu_eco_gamification_config" name="Configuration" parent="menu_eco_gamification_root" sequence="90" />
-
-    </odoo>
+<odoo>
+    <menuitem id="menu_eco_gamification_root" name="Gamification" parent="eco_base.menu_eco_root" sequence="40" active="False" />
+    <menuitem id="menu_eco_gamification_config" name="Configuration" parent="eco_base.menu_eco_gamification" sequence="90" />
+</odoo>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo><menuitem id="menu_eco_root" name="EcoSphere" sequence="10" />
+<odoo><menuitem id="menu_eco_root" name="EcoSphere Dashboard" sequence="10" />
 
     
     <menuitem id="menu_eco_environmental" name="Environmental" parent="menu_eco_root" sequence="20" />

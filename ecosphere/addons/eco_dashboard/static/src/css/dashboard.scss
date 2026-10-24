@@ -2,10 +2,10 @@
 .eco-dashboard-container {
     background-color: #0f172a; // Tailwind Slate 900
     color: #e2e8f0; // Tailwind Slate 200
-    min-height: 100vh;
+    height: calc(100vh - 46px);
+    overflow-y: auto;
     padding: 24px;
     font-family: 'Inter', 'Roboto', sans-serif;
-    overflow-y: auto;
     
     // Grid layout for widgets
     .eco-dashboard-grid {
